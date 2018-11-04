@@ -23,12 +23,10 @@ public class ObserverPatternApplication {
 		a.register(obs2);
 
 		a.setAmount(BigDecimal.ZERO);
-		a.notifyAllObservers();
 
 		a.unregister(obs1);
 
 		a.setAmount(BigDecimal.ONE);
-		a.notifyAllObservers();
 
 	}
 }

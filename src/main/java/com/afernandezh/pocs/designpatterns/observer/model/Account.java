@@ -1,18 +1,23 @@
 package com.afernandezh.pocs.designpatterns.observer.model;
 
 import com.afernandezh.pocs.designpatterns.observer.obs.AccountAmountObserver;
-import lombok.Data;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
 public class Account {
 
     private BigDecimal amount;
 
     private List<AccountAmountObserver> observers;
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+        notifyAllObservers();
+    }
 
     public void register(AccountAmountObserver obs) {
 
@@ -29,7 +34,7 @@ public class Account {
         }
     }
 
-    public void notifyAllObservers() {
+    private void notifyAllObservers() {
         observers.forEach(accountAmountObserver -> accountAmountObserver.notify(this.getClass().getCanonicalName(), amount));
     }
 }
