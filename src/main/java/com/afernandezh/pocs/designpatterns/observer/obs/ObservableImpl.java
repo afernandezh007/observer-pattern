@@ -28,8 +28,7 @@ public abstract class ObservableImpl implements Observable{
      * @param field
      * @param observedField
      */
-    @Override
-    public final void notifyAllObservers(String field, Object observedField) {
+    protected final void notifyAllObservers(String field, Object observedField) {
         getObservers().forEach(observer -> observer.notify(this.getClass().getCanonicalName(),field, observedField));
     }
 }
