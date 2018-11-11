@@ -16,11 +16,4 @@ public interface Observable {
      * @param obs
      */
     void unregister(Observer obs);
-
-    /**
-     * Notify to all observers
-     * @param field
-     * @param observedField
-     */
-    void notifyAllObservers(String field, Object observedField);
 }
